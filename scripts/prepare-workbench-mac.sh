@@ -19,4 +19,4 @@ if [[ ! -x Vendor/rare/runtime/bin/python ]]; then
   mkdir -p Vendor/rare/runtime
   ditto --norsrc --noextattr "$stage/python" Vendor/rare/runtime
 fi
-python3 scripts/build_rare.py
+python3 scripts/build_rare.py Vendor/rare/bin
