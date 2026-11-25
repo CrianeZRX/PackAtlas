@@ -1,0 +1,7 @@
+QuickUnzip legacy decoders
+ACE: https://github.com/droe/acefile (ACE-LICENSE.md)
+PMarc: https://github.com/fragglet/lhasa (Resources/Licenses/Lhasa.txt)
+ZPAQ: https://github.com/zpaq/zpaq (Resources/Licenses/ZPAQ.txt). Compiled for arm64 with NOJIT, integration maps archive names to private flat slots.
+ALZ modified bzip2: https://github.com/kippler/unalz (Resources/Licenses/UnALZ.txt and Bzip2.txt).
+AZO: native block decoder adapted from https://github.com/alkegi/libazo (AZO-LICENSE.txt).
+Embedded runtime: CPython 3.12.12 (conda-forge arm64 build); compact standard library and libffi from the CPython runtime distributed with CloudCompare. CPython and libffi notices are in runtime/. Most extension modules link to macOS system libraries; libffi is bundled alongside _ctypes.

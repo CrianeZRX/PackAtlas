@@ -1,0 +1,78 @@
+{
+  "input_bytes": 67108864,
+  "archive_bytes": 34005045,
+  "scenario": "warm-cache synthetic ZIP32 Deflate, 4 x 16 MiB, Utility QoS, writes not fsync",
+  "runs": [
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP 2.0 (deflation)",
+      "ok": true,
+      "peak_resident_bytes": 11337728,
+      "seconds": 0.05485403537750244,
+      "skipped": 0,
+      "mode": "serial",
+      "sha256_match": true
+    },
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP · 并行 2 线程",
+      "ok": true,
+      "peak_resident_bytes": 11059200,
+      "seconds": 0.025570988655090332,
+      "skipped": 0,
+      "mode": "balanced",
+      "sha256_match": true
+    },
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP · 并行 2 线程",
+      "ok": true,
+      "peak_resident_bytes": 11059200,
+      "seconds": 0.020434021949768066,
+      "skipped": 0,
+      "mode": "balanced",
+      "sha256_match": true
+    },
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP 2.0 (deflation)",
+      "ok": true,
+      "peak_resident_bytes": 11239424,
+      "seconds": 0.027431011199951172,
+      "skipped": 0,
+      "mode": "serial",
+      "sha256_match": true
+    },
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP 2.0 (deflation)",
+      "ok": true,
+      "peak_resident_bytes": 11239424,
+      "seconds": 0.03145003318786621,
+      "skipped": 0,
+      "mode": "serial",
+      "sha256_match": true
+    },
+    {
+      "bytes": 67108864,
+      "files": 4,
+      "format": "ZIP · 并行 2 线程",
+      "ok": true,
+      "peak_resident_bytes": 11059200,
+      "seconds": 0.02125394344329834,
+      "skipped": 0,
+      "mode": "balanced",
+      "sha256_match": true
+    }
+  ],
+  "median_seconds": {
+    "serial": 0.03145003318786621,
+    "balanced": 0.02125394344329834
+  },
+  "speedup_for_this_sample": 1.4797269632230454
+}

@@ -1,0 +1,96 @@
+name: PackAtlas builds
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare native decoders
+        run: bash scripts/prepare-workbench-mac.sh
+      - name: Native regression tests
+        run: bash scripts/test.sh
+      - name: Build macOS installer
+        run: bash scripts/build-workbench.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PackAtlas-macOS-arm64
+          path: dist/Workbench/*.pkg
+          if-no-files-found: error
+
+  portable:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-2025
+            platform: windows
+            command: package:win
+          - runner: ubuntu-24.04
+            platform: ubuntu
+            command: package:linux
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Prepare Windows 7-Zip
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $url = 'https://github.com/ip7z/7zip/releases/download/26.06/7z2606-x64.exe'
+          $archive = Join-Path $env:RUNNER_TEMP '7zip-setup.exe'
+          Invoke-WebRequest $url -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLower() -ne '9b697f65ecc2d9b0152f5ee96d72dde522a7827690349d9307935dacf40f42ec') {
+            throw '7-Zip checksum mismatch'
+          }
+          $engine = Join-Path $PWD 'Workbench/engine'
+          New-Item $engine -ItemType Directory -Force | Out-Null
+          & "$env:ProgramFiles/7-Zip/7z.exe" x -y $archive "-o$engine" 7z.exe 7z.dll
+          if ($LASTEXITCODE -ne 0 -or !(Test-Path "$engine/7z.dll")) { throw '7-Zip setup could not be unpacked' }
+          Copy-Item Vendor/7zip/7zz-License.txt "$engine/LICENSE.txt"
+          Copy-Item Vendor/7zip/SOURCE.txt "$engine/SOURCE.txt"
+          "QUICKUNZIP_7ZIP=$engine/7z.exe" >> $env:GITHUB_ENV
+
+      - name: Prepare Ubuntu 7-Zip
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          curl -fL --retry 3 https://github.com/ip7z/7zip/releases/download/26.06/7z2606-linux-x64.tar.xz -o "$RUNNER_TEMP/7zip.tar.xz"
+          printf '%s  %s\n' 2b539cf067b2ad48e1baa5093dbaa8818b73542d1222a0ffde9dc5f2922ea62e "$RUNNER_TEMP/7zip.tar.xz" | sha256sum -c -
+          mkdir -p Workbench/engine
+          tar -xf "$RUNNER_TEMP/7zip.tar.xz" -C Workbench/engine 7zz License.txt
+          cp Vendor/7zip/SOURCE.txt Workbench/engine/SOURCE.txt
+          echo "QUICKUNZIP_7ZIP=$PWD/Workbench/engine/7zz" >> "$GITHUB_ENV"
+
+      - name: Verify extraction and localization
+        working-directory: Workbench
+        run: npm test
+
+      - name: Install desktop build dependencies
+        working-directory: Workbench
+        run: npm install --no-audit --no-fund
+
+      - name: Build platform installers
+        working-directory: Workbench
+        run: npm run ${{ matrix.command }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PackAtlas-${{ matrix.platform }}-x64
+          path: |
+            Workbench/dist/*.exe
+            Workbench/dist/*.deb
+            Workbench/dist/*.AppImage
+          if-no-files-found: error

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="448" viewBox="0 0 1280 448" role="img" aria-labelledby="title desc">
+  <title id="title">PackAtlas — An illustrated archive workbench</title>
+  <desc id="desc">An exploded archive on a cobalt drafting grid, with gold, coral and mint document layers.</desc>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="1" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#172d79"/>
+      <stop offset=".53" stop-color="#263db3"/>
+      <stop offset="1" stop-color="#603ed2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".76" cy=".38" r=".61">
+      <stop stop-color="#6774ff" stop-opacity=".86"/>
+      <stop offset="1" stop-color="#6774ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paper" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#fff7d9"/>
+      <stop offset="1" stop-color="#ffdf8b"/>
+    </linearGradient>
+    <pattern id="minorGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#E3EBFF" stroke-opacity=".14"/>
+    </pattern>
+    <pattern id="majorGrid" width="112" height="112" patternUnits="userSpaceOnUse">
+      <path d="M112 0H0V112" fill="none" stroke="#D7E4FF" stroke-opacity=".25"/>
+    </pattern>
+    <pattern id="print" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".56" fill="#111c5d" opacity=".17"/>
+    </pattern>
+    <clipPath id="panel"><rect width="1280" height="448" rx="25"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#panel)">
+    <rect width="1280" height="448" fill="url(#blue)"/>
+    <rect width="1280" height="448" fill="url(#glow)"/>
+    <rect width="1280" height="448" fill="url(#minorGrid)"/>
+    <rect width="1280" height="448" fill="url(#majorGrid)"/>
+    <rect width="1280" height="448" fill="url(#print)"/>
+
+    <g fill="none" stroke="#DDE6FF">
+      <rect x="23.5" y="23.5" width="1233" height="401" rx="11" stroke-opacity=".32"/>
+      <path d="M23 41V23H41M1239 23H1257V41M1257 407V425H1239M41 425H23V407" stroke-opacity=".75" stroke-width="2"/>
+      <path d="M64 344H602" stroke-opacity=".43"/>
+      <path d="M734 107H1165M734 217H1211M695 324H1193M768 104V354M1099 80V359" stroke-opacity=".37" stroke-dasharray="4 7"/>
+      <ellipse cx="960" cy="226" rx="230" ry="156" stroke-opacity=".24" transform="rotate(-16 960 226)"/>
+      <ellipse cx="960" cy="226" rx="258" ry="175" stroke-opacity=".17" transform="rotate(-16 960 226)"/>
+      <path d="M751 113h34m-17-17v34M1083 326h32m-16-16v32M1176 115h20m-10-10v20M750 346h20m-10-10v20" stroke-opacity=".61"/>
+    </g>
+
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-weight="700" letter-spacing="2.5">
+      <rect x="64" y="56" width="38" height="32" rx="5" fill="#ffd578"/>
+      <path d="M74 65h17l4 5v9H74zM83 65v12m0-4h4m-4-4h-4" fill="none" stroke="#1f2a6f" stroke-width="1.6" stroke-linejoin="round"/>
+      <text x="115" y="77" fill="#FFE9AB" font-size="14">THE ARCHIVE WORKBENCH</text>
+      <text x="64" y="382" fill="#FFF2D1" font-size="15">01 / BROWSE</text>
+      <text x="245" y="382" fill="#FFF2D1" font-size="15">02 / TEST</text>
+      <text x="404" y="382" fill="#FFF2D1" font-size="15">03 / EXTRACT</text>
+      <circle cx="224" cy="376" r="2.5" fill="#ff9585"/>
+      <circle cx="383" cy="376" r="2.5" fill="#ff9585"/>
+    </g>
+
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+      <text x="58" y="227" fill="#141c65" opacity=".63" font-size="109" font-weight="800" letter-spacing="-7">PackAtlas</text>
+      <text x="58" y="220" fill="#fff8e8" font-size="109" font-weight="800" letter-spacing="-7">PackAtlas</text>
+      <text x="65" y="276" fill="#EDF1FF" font-size="27" font-weight="500" letter-spacing="-.45">See what's inside before you unzip.</text>
+      <text x="65" y="309" fill="#BBCBFF" font-size="17" letter-spacing=".15">A desktop workbench for archives. Fully offline.</text>
+    </g>
+
+    <g stroke="#16225e" stroke-width="2.3" stroke-linejoin="round">
+      <path d="m795 318 182-72 170 55-178 77z" fill="#131c61" opacity=".5" stroke="none"/>
+      <path d="m794 298 177 59 181-71v18l-181 75-177-62z" fill="#e99752"/>
+      <path d="m971 357 181-71v18l-181 75z" fill="#d8754e"/>
+      <path d="m794 298 177-70 181 58-181 71z" fill="url(#paper)"/>
+      <path d="m811 299 160-64 163 52-163 64z" fill="none" stroke="#a2704c" stroke-dasharray="5 6" stroke-width="1.4"/>
+      <path d="m834 239 114-45 157 50v12l-114 45-157-50z" fill="#559e9a"/>
+      <path d="m991 289 114-45v12l-114 45z" fill="#377f94"/>
+      <path d="m834 239 114-45 157 50-114 45z" fill="#a2e8d3"/>
+      <path d="m857 221 73-29 22 7-73 29z" fill="#f6fbdf" stroke-width="1.1"/>
+      <path d="m898 241 92-36m-79 43 92-36m-80 44 73-29m-60 36 47-19" stroke="#397989" stroke-width="1.6" opacity=".68"/>
+      <path d="m796 183 162-64 147 49v11l-162 65-147-50z" fill="#d95d78"/>
+      <path d="m943 232 162-64v11l-162 65z" fill="#bb4d76"/>
+      <path d="m796 183 162-64 147 49-162 64z" fill="#ffa58f"/>
+      <path d="m819 182 140-55 122 41-140 55z" fill="none" stroke="#9a4f6e" stroke-width="1.15"/>
+      <path d="m848 179 54-21m-43 26 54-21m-43 26 39-15m56 13 73-29" stroke="#8d4d65" stroke-width="1.6" opacity=".65"/>
+      <path d="m839 117 49-20 37 11 22-9 122 39v12l-123 49-107-35z" fill="#d69257"/>
+      <path d="m946 186 123-48v12l-123 49z" fill="#c67454"/>
+      <path d="m839 117 49-20 37 11 22-9 122 39-123 48-107-35z" fill="url(#paper)"/>
+      <path d="m839 117 107 36 123-15m-123 15v33" fill="none" stroke="#bb8463" stroke-width="1.35"/>
+      <path d="m839 117 107 36 123-15-123 48-107-35z" fill="#f3ba67" fill-opacity=".52" stroke="none"/>
+      <path d="m950 116 48 16-14 6-48-16z" fill="#fff8df" stroke-width="1.1"/>
+      <path d="m847 116 97 33m3 12v18m8-20v18m8-20v16m8-19v16m8-18v15m8-17v13" fill="none" stroke="#78547a" stroke-width="1.15"/>
+    </g>
+
+    <g fill="none" stroke="#e5ecff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1046 124l34-46h88M1085 223l33-19h68M1105 315l23 28h67" stroke-opacity=".82"/>
+      <circle cx="1046" cy="124" r="3" fill="#ffd578"/>
+      <circle cx="1085" cy="223" r="3" fill="#a2e8d3"/>
+      <circle cx="1105" cy="315" r="3" fill="#ffa58f"/>
+      <path d="M728 160v38m-4-32 4-6 4 6m-8 26 4 6 4-6M719 204v45m-4-39 4-6 4 6m-8 33 4 6 4-6" stroke-opacity=".65"/>
+    </g>
+
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.45" fill="#F3F3FF">
+      <text x="1091" y="70">CONTAINER</text>
+      <text x="1126" y="196">MEMBERS</text>
+      <text x="1137" y="335">OUTPUT</text>
+      <text x="707" y="381" fill="#c4d1ff">FIG. 01 / ARCHIVE CUTAWAY</text>
+      <rect x="1041" y="370" width="166" height="27" rx="4" fill="#211f69" stroke="#9aabf2"/>
+      <circle cx="1055" cy="383.5" r="3.5" fill="#ffd578"/>
+      <text x="1067" y="388" fill="#ffebad">3.0.0 PREVIEW.1</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,111 @@
+{
+  "package": "QuickUnzip-2.2-macOS-arm64.pkg",
+  "sha256": "63ae9f85be450da2ea38d2f2906cdecbf4c05fd016229a868dbeb8bb1556f31d",
+  "bytes": 7421381,
+  "passed": {
+    "Brotli": [
+      1,
+      9728
+    ],
+    "LZFSE": [
+      1,
+      9728
+    ],
+    "LZ4": [
+      1,
+      9728
+    ],
+    "Lzip": [
+      1,
+      9728
+    ],
+    "UUencode": [
+      1,
+      9728
+    ],
+    "XXencode": [
+      1,
+      9728
+    ],
+    "ISZ": [
+      1,
+      2048
+    ],
+    "ACE": [
+      1,
+      29
+    ],
+    "PMarc": [
+      1,
+      18176
+    ],
+    "BlakHole": [
+      1,
+      4121
+    ],
+    "ZPAQ": [
+      1,
+      5000
+    ],
+    "AES Crypt": [
+      1,
+      14
+    ],
+    "EGG-Deflate": [
+      1,
+      5
+    ],
+    "EGG-LZMA": [
+      2,
+      10
+    ],
+    "EGG-AZO": [
+      1,
+      148781
+    ],
+    "EGG-Solid": [
+      5,
+      6342
+    ],
+    "EGG-crypto": [
+      1,
+      5
+    ],
+    "EGG-AES": [
+      1,
+      9000
+    ],
+    "EGG-var-header": [
+      1,
+      3600
+    ],
+    "EGG-volumes": [
+      4,
+      160000
+    ],
+    "ALZ": [
+      1,
+      5
+    ],
+    "ALZ-DLZ": [
+      1,
+      3600
+    ],
+    "ALZ-crypto": [
+      1,
+      5
+    ],
+    "ALZ-volumes": [
+      4,
+      160000
+    ],
+    "wrong-extension": [
+      1,
+      5
+    ]
+  },
+  "negative": [
+    "corrupt EGG rollback",
+    "wrong AES password"
+  ]
+}

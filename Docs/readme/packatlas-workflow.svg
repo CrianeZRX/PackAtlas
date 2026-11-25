@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="372" viewBox="0 0 1280 372" role="img" aria-labelledby="title desc">
+  <title id="title">Selective extraction in PackAtlas</title>
+  <desc id="desc">An illustrative archive listing with three files. Only data.csv is selected and written to the chosen folder.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#6a75b1" stroke-opacity=".2"/>
+    </pattern>
+    <clipPath id="paper"><rect width="1280" height="372" rx="22"/></clipPath>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#ececff"/>
+      <stop offset="1" stop-color="#d9dfef"/>
+    </linearGradient>
+    <linearGradient id="seal" x2="1" y2="1">
+      <stop stop-color="#3d51c5"/>
+      <stop offset="1" stop-color="#5935b5"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#paper)">
+    <rect width="1280" height="372" fill="url(#bg)"/>
+    <rect width="1280" height="372" fill="url(#grid)"/>
+    <rect x="14.5" y="14.5" width="1251" height="343" rx="13" fill="none" stroke="#5b6fa3" stroke-opacity=".48" stroke-dasharray="3 5"/>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-weight="700" letter-spacing="2" fill="#39458c">
+      <text x="47" y="58" font-size="14">FIELD NOTE / 01</text>
+      <text x="1231" y="58" font-size="14" text-anchor="end">SELECTIVE EXTRACTION</text>
+      <path d="M48 74h1184" stroke="#6273b6" stroke-opacity=".5"/>
+    </g>
+    <rect x="53" y="103" width="536" height="213" rx="12" fill="#354782" opacity=".14"/>
+    <rect x="47" y="96" width="536" height="213" rx="12" fill="#fffaf0" stroke="#282957" stroke-width="2"/>
+    <rect x="804" y="103" width="435" height="213" rx="12" fill="#354782" opacity=".14"/>
+    <rect x="798" y="96" width="435" height="213" rx="12" fill="#fffaf0" stroke="#282957" stroke-width="2"/>
+
+    <g font-family="ui-monospace, Menlo, Consolas, monospace">
+      <text x="70" y="127" font-size="12" letter-spacing="1.7" font-weight="700" fill="#a93e44">01 / INSIDE THE ARCHIVE</text>
+      <text x="821" y="127" font-size="12" letter-spacing="1.7" font-weight="700" fill="#a93e44">02 / IN YOUR FOLDER</text>
+      <path d="M70 160h490m261 0h389" fill="none" stroke="#a6a6a6" stroke-dasharray="4 4"/>
+      <rect x="521" y="127" width="40" height="22" rx="4" fill="#ffe7a3" stroke="#ad8050"/>
+      <text x="541" y="142" text-anchor="middle" fill="#623d36" font-size="11" font-weight="700">ZIP</text>
+    </g>
+    <g fill="#272945" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="750">
+      <text x="70" y="151">sample.zip</text>
+      <text x="821" y="151">Chosen destination</text>
+    </g>
+
+    <rect x="69" y="201" width="492" height="36" rx="6" fill="#e1f0ce" stroke="#467b66" stroke-width="1.2"/>
+    <g stroke="#43476a" stroke-width="1.3" fill="#fffcf5">
+      <rect x="80" y="176" width="15" height="15" rx="3"/>
+      <rect x="80" y="211" width="15" height="15" rx="3" fill="#24775e" stroke="#24775e"/>
+      <rect x="80" y="248" width="15" height="15" rx="3"/>
+      <path d="m83.5 218 2.8 3 5.2-6" fill="none" stroke="#fff" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="16" fill="#262947">
+      <text x="110" y="189">notes.txt</text>
+      <text x="110" y="224" font-weight="700">data.csv</text>
+      <text x="110" y="261">docs/readme.txt</text>
+      <text x="546" y="223" text-anchor="end" font-size="11" fill="#286750" letter-spacing="1" font-weight="700">SELECTED</text>
+    </g>
+
+    <path d="M605 204h31m105 0h35" stroke="#414bb0" stroke-width="2" stroke-dasharray="4 5"/>
+    <circle cx="689" cy="204" r="41" fill="url(#seal)" stroke="#262b7d" stroke-width="1.5"/>
+    <path d="M669 204h37m-10-10 10 10-10 10" stroke="#ffedb2" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="821" y="182" width="389" height="76" rx="9" fill="#edf0fb" stroke="#95a0ce"/>
+    <path d="M845 201h15l5 5h19v29h-39z" fill="#ffd877" stroke="#52486f" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M845 210h39l-4 25h-39z" fill="#ffecaf" stroke="#52486f" stroke-width="1.5" stroke-linejoin="round"/>
+    <text x="899" y="225" fill="#272945" font-size="20" font-weight="700" font-family="ui-monospace, Menlo, Consolas, monospace">data.csv</text>
+    <circle cx="1184" cy="220" r="12" fill="#cce8ce" stroke="#63917a"/>
+    <path d="m1179 220 3 3 5-6" fill="none" stroke="#286750" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" letter-spacing="1.6" font-weight="700" fill="#606281">
+      <text x="70" y="286">1 OF 3 SELECTED</text>
+      <text x="821" y="286">ONLY THE SELECTED FILE IS WRITTEN</text>
+    </g>
+  </g>
+</svg>

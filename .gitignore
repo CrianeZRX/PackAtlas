@@ -1,0 +1,15 @@
+.build/
+dist/
+*.xcodeproj/xcuserdata/
+.DS_Store
+
+Workbench/node_modules/
+Workbench/engine/
+Workbench/dist/
+Vendor/7zip/7z
+Vendor/7zip/7z.so
+Vendor/7zip/7zz
+Vendor/rare/runtime/
+Vendor/rare/bin/
+__pycache__/
+*.pyc

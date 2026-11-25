@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>PackAtlas</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="locale.js"></script>
+<script defer src="diagram.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <header class="brand">
+    <canvas id="mark" width="47" height="47" aria-hidden="true"></canvas>
+    <div><div class="brand-name">PackAtlas</div><div class="eyebrow" data-text="brandSubtitle"></div></div>
+  </header>
+  <nav id="nav">
+    <button type="button" data-view="desk" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span data-text="desk"></span></button>
+    <button type="button" data-view="history"><span class="nav-icon" aria-hidden="true">≡</span><span data-text="history"></span></button>
+    <button type="button" data-view="settings"><span class="nav-icon" aria-hidden="true">⚙</span><span data-text="settings"></span></button>
+  </nav>
+  <section class="queue">
+    <div class="rail-title"><h2 data-text="queue"></h2><span id="queueCount" class="count">0</span></div>
+    <div id="queue"></div>
+  </section>
+  <footer class="rail-footer">
+    <label for="language" data-text="language"></label><select id="language"></select>
+    <div class="host"><span class="dot"></span><span id="host"></span></div>
+  </footer>
+</aside>
+
+<main>
+  <header class="top">
+    <div class="title"><div class="eyebrow" data-text="section"></div><h1 id="pageTitle"></h1></div>
+    <button type="button" class="button ink" id="add"><span aria-hidden="true">＋</span> <span data-text="add"></span></button>
+  </header>
+
+  <div id="desk" class="view">
+    <div class="stats" id="stats"></div>
+    <div class="workspace">
+      <section class="paper plan" id="dropTarget" tabindex="0">
+        <div class="panel-title"><div><span class="eyebrow" data-text="diagramKicker"></span><h2 id="diagramTitle"></h2></div><span class="format" id="format"></span></div>
+        <div class="drawing"><canvas id="archiveDrawing" width="620" height="306" aria-hidden="true"></canvas></div>
+        <div class="drawing-caption">
+          <div><strong id="captionTitle"></strong><p id="captionBody"></p></div>
+          <button type="button" class="button outline" id="inspect" hidden data-text="inspect"></button>
+        </div>
+      </section>
+      <section class="paper controls">
+        <div class="panel-title"><div><span class="eyebrow" data-text="outputKicker"></span><h2 data-text="output"></h2></div></div>
+        <div class="form">
+          <label for="layout" data-text="layout"></label><select id="layout"></select>
+          <label for="destination" data-text="destination"></label>
+          <div class="destination"><button type="button" id="destination" class="location"></button><button type="button" class="clear-button" id="clearDestination" aria-label="Reset" hidden>×</button></div>
+          <label for="performance" data-text="performance"></label><select id="performance"></select>
+          <label for="conflict" data-text="conflict"></label><select id="conflict"></select>
+        </div>
+        <div class="actions"><button type="button" class="button marker" id="extract"><span data-text="extract"></span> <span aria-hidden="true">↘</span></button><button type="button" class="button outline" id="test" data-text="test"></button></div>
+      </section>
+    </div>
+    <section class="paper ledger">
+      <header class="panel-title"><h2 data-text="recent"></h2><button type="button" class="text-button" id="seeHistory" data-text="seeHistory"></button></header>
+      <div id="recent"></div>
+    </section>
+  </div>
+
+  <section id="history" class="view" hidden>
+    <div class="paper ledger">
+      <header class="panel-title"><h2 data-text="history"></h2><button type="button" id="clearHistory" class="text-button" data-text="clearHistory"></button></header>
+      <div id="records"></div>
+    </div>
+  </section>
+
+  <section id="settings" class="view" hidden>
+    <div class="paper settings-card">
+      <header class="panel-title"><h2 data-text="defaults"></h2></header>
+      <div class="form">
+        <label for="encoding" data-text="encoding"></label><select id="encoding"></select>
+        <label class="check"><input id="ignoreMac" type="checkbox"><span data-text="ignoreMac"></span></label>
+        <div class="engine"><div class="eyebrow" data-text="engine"></div><p id="engine"></p><p id="platformNote"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="status"><span class="dot"></span><span id="status" role="status"></span><span class="edition">PACKATLAS / 3.0</span></footer>
+</main>
+
+<dialog id="contents">
+  <header class="dialog-title"><h2 id="contentsName"></h2><button type="button" class="clear-button" data-close="contents" aria-label="Close">×</button></header>
+  <input id="search" type="search">
+  <div class="scroll-list" id="members"></div>
+  <footer class="dialog-actions"><button type="button" class="button outline" id="more" data-text="more" hidden></button><button type="button" class="button marker" id="extractSelected" data-text="extractSelected"></button></footer>
+</dialog>
+<dialog id="passwordDialog">
+  <form id="passwordForm">
+    <header class="dialog-title"><h2 data-text="password"></h2><button type="button" class="clear-button" data-close="passwordDialog" aria-label="Close">×</button></header>
+    <p id="passwordName"></p><label for="passwordInput" data-text="password"></label><input id="passwordInput" type="password" autocomplete="off" required>
+    <footer class="dialog-actions"><button type="button" class="button ink" data-text="continue"></button></footer>
+  </form>
+</dialog>
+</body>
+</html>
