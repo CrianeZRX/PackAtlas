@@ -1,5 +1,7 @@
+import json
 import plistlib
 import sys
+from pathlib import Path
 
 formats = {
     'zip': ('public.zip-archive', ['zip', 'zipx', 'xpi', 'jar']),
@@ -48,11 +50,12 @@ info = {
     ],
 }
 if "--workbench" in sys.argv:
+    version = json.loads((Path(__file__).resolve().parents[1] / "Workbench/package.json").read_text())["version"]
     info["CFBundleIdentifier"] = "app.packatlas.desktop"
     info["CFBundleName"] = "PackAtlas"
     info["CFBundleExecutable"] = "PackAtlas"
     info["NSHumanReadableCopyright"] = "PackAtlas · 2026"
-    info["CFBundleShortVersionString"] = "3.0.0"
+    info["CFBundleShortVersionString"] = version.split("-", 1)[0].split("+", 1)[0]
     info["CFBundleVersion"] = "7"
     info["CFBundleDisplayName"] = "PackAtlas"
     info.pop("NSServices")

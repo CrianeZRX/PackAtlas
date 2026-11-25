@@ -1,15 +1,19 @@
-# 首次发布到 GitHub
+# 发布 PackAtlas
 
-仓库建议为 CrianeZRX/packatlas，可见性为 Public。2026-11-25 本地构建阶段尚未创建该远程仓库。首次发布建议使用源码包解出后得到的干净 PackAtlas 目录。
+推送 `main`、提交 PR 或手动运行工作流时，GitHub Actions 只构建和上传 Artifacts。推送 `v*` 版本标签时，[PackAtlas builds](../.github/workflows/workbench.yml) 还会在 macOS、Windows 和 Ubuntu 全部构建成功后，自动创建 GitHub Release。
 
-    gh auth login --hostname github.com --git-protocol https --web
-    gh auth refresh --hostname github.com --scopes workflow
-    git init -b main
-    git add .
-    git status --short
-    git commit -m "Initial PackAtlas preview"
-    gh repo create CrianeZRX/packatlas --public --source . --remote origin --push
+## 发布新版本
 
-git status 的输出应只有源码、字体及其许可证、合成样例、测试向量和构建配置。发布包排除了本机运行环境、编译结果和历史安装包。首次推送后查看 **Actions → PackAtlas builds**。运行成功后，在对应 run 的 **Artifacts** 中下载各平台包。GitHub Actions 不会自动创建 Release 或为安装包做平台签名、公证。
+1. 将版本号写入 [`Workbench/package.json`](../Workbench/package.json)，并提交、推送到 `main`。三个平台的安装包版本均从该文件读取。
+2. 在要发布的提交上创建同版本的标签，标签比版本号多一个 `v`。以 `3.0.0-preview.1` 为例：
 
-如果 GitHub 上已创建同名空仓库，给本地仓库添加它作为 origin，然后推送 main。此项目的源代码按 MIT 整理。第三方组件及字体沿用各自的许可证与署名，详见 [THIRD_PARTY.md](../THIRD_PARTY.md)。
+   ```bash
+   git tag -a v3.0.0-preview.1 -m "PackAtlas 3.0.0 Preview 1"
+   git push origin v3.0.0-preview.1
+   ```
+
+3. 在 [GitHub Actions](https://github.com/CrianeZRX/PackAtlas/actions/workflows/workbench.yml) 查看该标签对应的运行。成功后到 [GitHub Releases](https://github.com/CrianeZRX/PackAtlas/releases) 下载 macOS `.pkg`、Windows 安装版与便携版 `.exe`、Ubuntu `.deb` 与 `.AppImage`。
+
+带预发布后缀的版本（如 `-preview.1`）会标记为 **Pre-release**。发布任务不会覆盖同标签已发布的 Release。如果附件上传失败留下了同名草稿，先在 Releases 页面检查草稿，再决定补齐附件后发布，或清理草稿后重跑任务。
+
+发布任务使用 GitHub Actions 的内置令牌，不需要添加个人访问令牌。自动发布不改变各平台的签名或公证状态。源码采用 MIT 许可，第三方组件沿用各自的许可证，见 [THIRD_PARTY.md](../THIRD_PARTY.md)。

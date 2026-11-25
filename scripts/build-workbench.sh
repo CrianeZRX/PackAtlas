@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
+version=$(python3 -c 'import json; print(json.load(open("Workbench/package.json"))["version"])')
 export CLANG_MODULE_CACHE_PATH="$PWD/.build/module-cache"
 export SWIFTPM_MODULECACHE_OVERRIDE="$PWD/.build/module-cache"
 for dependency in Vendor/7zip/7zz Vendor/rare/runtime/bin/python Vendor/rare/bin/zpaq; do
@@ -43,7 +44,7 @@ codesign --force --sign - --timestamp=none "$contents/MacOS/qunzip"
 codesign --force --sign - --timestamp=none "$app"
 codesign --verify --deep --strict "$app"
 mkdir -p dist/Workbench
-out="dist/Workbench/PackAtlas-3.0.0-preview.1-macOS-arm64.pkg"
+out="dist/Workbench/PackAtlas-${version}-macOS-arm64.pkg"
 pkgbuild --analyze --root "$stage/payload" "$stage/components.plist"
 python3 - "$stage/components.plist" <<'PY2'
 import plistlib, sys
@@ -55,6 +56,6 @@ for item in components:
 p.write_bytes(plistlib.dumps(components))
 PY2
 pkgbuild --root "$stage/payload" --component-plist "$stage/components.plist" --identifier app.packatlas.desktop.installer \
-    --version 3.0.0 --install-location /Applications "$stage/workbench.pkg"
+    --version "${version%%[-+]*}" --install-location /Applications "$stage/workbench.pkg"
 cp "$stage/workbench.pkg" "$out"
 printf '%s\n' "$out"

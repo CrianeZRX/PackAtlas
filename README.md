@@ -48,7 +48,7 @@
 | **Windows · x64** | 安装版与便携版 `.exe` | 已配置构建流程，待目标系统验证。 |
 | **Ubuntu 24.04 · x64** | `.deb` / `.AppImage` | 已配置构建流程，待目标系统验证。 |
 
-手头已有 `PackAtlas-3.0.0-preview.1-macOS-arm64.pkg` 的话，打开安装包即可尝试预览版。自行打包可用下面的命令，也可从 [构建工作流](.github/workflows/workbench.yml) 的成功运行中获取产物。
+已发布版本的安装包见 [GitHub Releases](https://github.com/CrianeZRX/PackAtlas/releases)。未发布的构建产物可在 [GitHub Actions](https://github.com/CrianeZRX/PackAtlas/actions/workflows/workbench.yml) 对应运行的 **Artifacts** 中下载。
 
 ## 从源码构建
 

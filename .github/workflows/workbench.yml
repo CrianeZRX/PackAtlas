@@ -94,3 +94,31 @@ jobs:
             Workbench/dist/*.deb
             Workbench/dist/*.AppImage
           if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: [macos, portable]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: packatlas-release-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Download installers from this run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: PackAtlas-*
+          path: dist/release
+          merge-multiple: false
+
+      - name: Publish installers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: bash scripts/publish-workbench-release.sh "$GITHUB_REF_NAME" dist/release
